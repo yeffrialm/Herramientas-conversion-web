@@ -44,7 +44,7 @@ $peso = $reg3['tasa_divisa'];
 <!doctype html>
 <html>
     <head>
-        <title>Sitio Web</title>
+        <title>Diversas herramientas</title>
         <link rel="stylesheet" type="text/css" href="Css/Estilos.css">
 	    <meta charset="utf-8">
     </head>
@@ -63,9 +63,9 @@ $peso = $reg3['tasa_divisa'];
                 1 km =  0.621371 millas
                 1 milla = 1.60934 km
         -->
-        <h1>Convertidor</h1>
-        <form method="GET">
-            <p>Digite el valor</p>
+        <h1>Herramientas para convertir valores</h1>
+        <form method="GET">   <!-- cambiar de get a post    -->
+            <p>Digite el valor </p>  <!--  Seleccione entre las herramientas hacer div para dividir con bootstrap -->
             <input type="text" name="valor">
             <select name="conversion">
                 <option value="1">Kilos a Libras</option>
@@ -85,57 +85,61 @@ $peso = $reg3['tasa_divisa'];
         <h2>Resultado</h2>
         <?php
         //validar
+        $alert = '<div class="alert alert-primary" role="alert">';//clase de diseño bootstrap
         if (isset($_GET['valor']) && isset($_GET['conversion'])) {
             $valor = $_GET['valor'];
             $conversion = $_GET['conversion'];
             if ($conversion == 1) {
                 //convertir de kilos a libras
                 $resultado = $valor * 2.2;
-                echo "Son " . $resultado . " Libras";
+               
+               echo $alert . "Son " . $resultado . " Libras"." </div>";
+                
             } else if ($conversion == 2) {
                 //convertir de libras a kilos
                 $resultado = $valor * 0.454;
-                echo "Son " . $resultado . " Kilos";
+                echo $alert .  "Son " . $resultado . " Kilos"." </div>";
             } else if ($conversion == 3) {
                 //convertir de kilometros a Millas
                 $resultado = $valor * 0.621371;
-                echo "Son " . $resultado . " Millas";
+                echo $alert . "Son " . $resultado . " Millas"." </div>";
             } else if ($conversion == 4) {
                 //convertir de Millas a kilometros
                 $resultado = $valor * 1.60934;
-                echo "Son " . $resultado . " Kilometros";
+                echo $alert . "Son " . $resultado . " Kilometros"." </div>";
             } else if ($conversion == 5) {
                 //convertir de Celius a Fahrenheit
                 $resultado = ($valor * 1.8) + 32;
-                echo "Son " . $resultado . " Fahrenheit";
+                echo $alert .  "Son " . $resultado . " Fahrenheit"." </div>";
             } else if ($conversion == 6) {
                 //convertir de Fahrenheit a Celcius
                 $resultado = ($valor - 32) * 0.5556;
-
+               echo $alert . "Son " . $resultado . " Celcius"." </div>";
             } else if ($conversion == 7) {
                 //convertir de dolar a peso
                 $resultado =  ($dolar/$peso) * $valor;
-                 echo "Son " . $resultado . " pesos";
+                 echo $alert . "Son " . $resultado . " pesos"." </div>";
 
              } else if ($conversion == 8) {
                 //convertir de  peso a dolar
                 $resultado = ($peso/$dolar) * $valor ;
-                echo "Son " . $resultado . " dolares";
+                echo  $alert . "Son " . $resultado . " dolares"." </div>";
 
              } else if ($conversion == 9) {
                 //convertir de euro a peso
                 $resultado = ($euro/$peso) * $valor ;
-                 echo "Son " . $resultado . " pesos";
+                 echo $alert . "Son " . $resultado . " pesos"." </div>";
 
              } else if ($conversion == 10) {
                 //convertir de peso a euro
                 $resultado = ($peso/$euro) * $valor ;
-                echo "Son " . $resultado . " euros";
+                echo $alert . "Son " . $resultado . " euros"." </div>";
             } else {
-                echo "no puede realizarse la opción";
+                echo $alert . "no puede realizarse la opción"." </div>";
             }
         } else {
-            echo "No se ha realizado ninguna acción";
+            
+            echo $alert ."No se ha realizado ninguna acción"." </div>";
         }
         ?>
         </div>
