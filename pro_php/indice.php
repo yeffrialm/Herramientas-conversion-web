@@ -10,31 +10,32 @@
 <html>
     <head>
         <title>Sitio Web Convertidor</title>
-      	<link rel="stylesheet" type="text/css" href="Css/Estilos.css">
-	    <meta charset="utf-8">
     </head>
     <body>
-    <div class="contenedor">
-
-
-
+  
         <header>
-
             <!--  menu-->
             <?php include "modulos/menu.php"; ?>
 
-
         </header>
-        <div class="contenido">
-
-        <p>Bienvenido al sitio Web, aquí puede utilizar diversas herramientas como:</p>
-        <ul>
-            <li>Convertir distancias</li>
-            <li>Convertir masa de un cuerpo</li>
-            <li>Convertir monedas</li>
-            <li>Convertir temperaturas</li>
-        </ul><br>
+        <div class="container">
+        <div class="row">
+        <div class="col-12 mt-3 mb-4">
+        <h2> Bienvenido al sitio Web, aquí puede utilizar diversas herramientas como:</h2>
         </div>
+        <div class="col-12">
+        <div class="p-3 mb-2 bg-primary text-white">Convertir distancias</div>
+        <div class="p-3 mb-2 bg-secondary text-white">Convertir divisas</div>
+        <div class="p-3 mb-2 bg-success text-white">Convertir temperaturas</div>
+        <div class="p-3 mb-2 bg-danger text-white">Convertir masa de un cuerpo</div>
+        </div>
+        <div class="col-12">
+   <!--      <img src="" class="img-fluid"  alt="" width="330px"  height="500px">
+        <img src="" class="img-fluid"  alt=""> -->
+        </div>
+        </div>
+   
+
     </div>
     </body>
 </html>

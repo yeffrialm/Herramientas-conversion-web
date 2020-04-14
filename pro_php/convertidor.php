@@ -45,17 +45,15 @@ $peso = $reg3['tasa_divisa'];
 <html>
     <head>
         <title>Diversas herramientas</title>
-        <link rel="stylesheet" type="text/css" href="Css/Estilos.css">
-	    <meta charset="utf-8">
+       
     </head>
     <body>
-    <div class="contenedor">
+    
         <header>
             <!-- menu-->
             <?php include "modulos/menu.php"; ?>
 
         </header>	
-        <div class="contenido">
         <!--
             Datos de la conversión 
                 1 kg= 2.2 libras
@@ -63,11 +61,27 @@ $peso = $reg3['tasa_divisa'];
                 1 km =  0.621371 millas
                 1 milla = 1.60934 km
         -->
+        <div class="container">
+        <div class="row">
+        <div class="col-12">
         <h1>Herramientas para convertir valores</h1>
+        </div>
+        
         <form method="GET">   <!-- cambiar de get a post    -->
-            <p>Digite el valor </p>  <!--  Seleccione entre las herramientas hacer div para dividir con bootstrap -->
-            <input type="text" name="valor">
-            <select name="conversion">
+           <div class="row">
+           <div class="col-4">
+           <p>Digite el valor </p> 
+           </div>
+            <div class="col-8">
+            <p> Seleccione entre las herramientas</p>
+            </div>
+            </div>
+            <div class="row">
+           <div class="col-4">
+           <input type="text" name="valor" class="form-control">
+           </div>
+           <div class="col-5">
+            <select name="conversion" class="form-control">
                 <option value="1">Kilos a Libras</option>
                 <option value="2">Libras a Kilos</option>
                 <option value="3">kilometros a Millas</option>
@@ -80,9 +94,18 @@ $peso = $reg3['tasa_divisa'];
                 <option value="10">Peso a euro</option>
             </select>
             <br>
-            <input type="submit" value="Convertir">
+            </div>
+            <div class="col-12 ml-3 mt-2">
+            <input type="submit" class="btn btn-success btn-md" value="Convertir">
+            </div>
+           
         </form>
+        </div>
+         
+        <div class="col-12 mt-3">
         <h2>Resultado</h2>
+        </div>
+      
         <?php
         //validar
         $alert = '<div class="alert alert-primary" role="alert">';//clase de diseño bootstrap
@@ -143,6 +166,6 @@ $peso = $reg3['tasa_divisa'];
         }
         ?>
         </div>
-    </div>
+        </div>
     </body>
 </html>

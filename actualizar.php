@@ -1,7 +1,7 @@
 <!--
 
  nombres: Jelfri Almengot, Carlos Peralta
- matriculas: DD1669           98-2030       
+ matriculas: DD1669           98-2030        
  materia: RPG II(INF-314)
 -->
 
