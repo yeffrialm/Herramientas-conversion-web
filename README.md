@@ -1,7 +1,7 @@
 # herramientas-web
-pagina web con tecnologia php que ofrece herramientas como:
+Pagina web con tecnologia PHP que ofrece herramientas como:
 
-    Convertir distancias
-    Convertir masa de un cuerpo
+    Convertir unidades de medidas de distancias
+    Convertir unidades de medidas masa de un cuerpo
     Convertir divisas
-    Convertir temperaturas
+    Convertir unidades de medidas temperaturas

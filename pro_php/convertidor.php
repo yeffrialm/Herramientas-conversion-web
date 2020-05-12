@@ -7,9 +7,10 @@
 
 <?php
 $conexion = mysqli_connect("localhost","root","","db_divisa");//host ,usuario,contraseña,base de datos
-$registros = mysqli_query($conexion, "select * from monedas where id_divisa='1'" );//consulta solo dolar
-$registros2 = mysqli_query($conexion, "select * from monedas where id_divisa='2'" );//consulta solo euro
-$registros3 = mysqli_query($conexion, "select * from monedas where id_divisa='3'" );//consulta solo peso
+$registros = mysqli_query($conexion, "select * from monedas where id_divisa='1'" );//consulta para cambio Dollar
+$registros2 = mysqli_query($conexion, "select * from monedas where id_divisa='2'" );//consulta para cambio Euro
+$registros3 = mysqli_query($conexion, "select * from monedas where id_divisa='3'" );//consulta cambio Peso Dominicano a Dollar
+$registros4 = mysqli_query($conexion, "select * from monedas where id_divisa='4'" );//consulta cambio Peso Dominicano a Euro
 
 
 
@@ -17,25 +18,31 @@ $registros3 = mysqli_query($conexion, "select * from monedas where id_divisa='3'
 while ($reg = mysqli_fetch_array($registros)){
 
 $dolar = $reg['tasa_divisa'];
-//consulta dolar 
+//consulta Dollar 
 
 }
 
 while ($reg2 = mysqli_fetch_array($registros2)){
 
 $euro = $reg2['tasa_divisa'];
-//consulta euro
+//consulta Euro
 
 }
 
 
 while ($reg3 = mysqli_fetch_array($registros3)){
 
-$peso = $reg3['tasa_divisa'];
-//consulta peso
+$peso_USD = $reg3['tasa_divisa'];
+//consulta Peso Dominicano a Dollar
 
 }
 
+while ($reg4 = mysqli_fetch_array($registros4)){
+
+    $peso_EUR = $reg4['tasa_divisa'];
+    //consulta Peso Dominicano a Euro
+    
+    }
 
 
 
@@ -67,7 +74,7 @@ $peso = $reg3['tasa_divisa'];
         <h1>Herramientas para convertir valores</h1>
         </div>
         
-        <form method="GET">   <!-- cambiar de get a post    -->
+        <form method="POST">  
            <div class="row">
            <div class="col-4">
            <p>Digite el valor </p> 
@@ -90,8 +97,8 @@ $peso = $reg3['tasa_divisa'];
                 <option value="6">Fahrenheit a Celcius</option>
                 <option value="7">Dollar a Peso</option>
                 <option value="8">Peso a Dollar</option>
-                <option value="9">euro a Peso</option>
-                <option value="10">Peso a euro</option>
+                <option value="9">Euro a Peso</option>
+                <option value="10">Peso a Euro</option>
             </select>
             <br>
             </div>
@@ -107,11 +114,10 @@ $peso = $reg3['tasa_divisa'];
         </div>
       
         <?php
-        //validar
-        $alert = '<div class="alert alert-primary" role="alert">';//clase de diseño bootstrap
-        if (isset($_GET['valor']) && isset($_GET['conversion'])) {
-            $valor = $_GET['valor'];
-            $conversion = $_GET['conversion'];
+        $alert = '<div class="alert alert-primary" role="alert">';//clase contiene diseño bootstrap
+        if (isset($_POST['valor']) && isset($_POST['conversion'])) {
+            $valor = $_POST['valor'];
+            $conversion = $_POST['conversion'];
             if ($conversion == 1) {
                 //convertir de kilos a libras
                 $resultado = $valor * 2.2;
@@ -139,26 +145,26 @@ $peso = $reg3['tasa_divisa'];
                 $resultado = ($valor - 32) * 0.5556;
                echo $alert . "Son " . $resultado . " Celcius"." </div>";
             } else if ($conversion == 7) {
-                //convertir de dolar a peso
-                $resultado =  ($dolar/$peso) * $valor;
+                //convertir de DolLar a Peso
+                $resultado =  $dolar * $valor;
                  echo $alert . "Son " . $resultado . " pesos"." </div>";
 
              } else if ($conversion == 8) {
-                //convertir de  peso a dolar
-                $resultado = ($peso/$dolar) * $valor ;
+                //convertir de  Peso a Dollar
+                $resultado = $peso_USD * $valor ;
                 echo  $alert . "Son " . $resultado . " dolares"." </div>";
 
              } else if ($conversion == 9) {
-                //convertir de euro a peso
-                $resultado = ($euro/$peso) * $valor ;
+                //convertir de Euro a Peso
+                $resultado = $euro * $valor ;
                  echo $alert . "Son " . $resultado . " pesos"." </div>";
 
              } else if ($conversion == 10) {
-                //convertir de peso a euro
-                $resultado = ($peso/$euro) * $valor ;
+                //convertir de Peso a Euro
+                $resultado = $peso_EUR * $valor ;
                 echo $alert . "Son " . $resultado . " euros"." </div>";
             } else {
-                echo $alert . "no puede realizarse la opción"." </div>";
+                echo $alert . "no puede realizarse la operacion"." </div>";
             }
         } else {
             
