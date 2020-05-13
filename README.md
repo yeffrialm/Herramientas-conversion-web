@@ -1,7 +1,7 @@
-# herramientas-web
-Pagina web con tecnologia PHP que ofrece herramientas como:
+# Herramientas-de-conversion-web
+pagina web con tecnologia php que ofrece herramientas como:
 
-    Convertir unidades de medidas de distancias
-    Convertir unidades de medidas masa de un cuerpo
-    Convertir divisas
-    Convertir unidades de medidas temperaturas
+    Convertir distancias:km, millas
+    Convertir masa de un cuerpo: kilogramos, libras
+    Convertir divisas:dollar,euro
+    Convertir temperaturas:celcius,Fahrenheit
